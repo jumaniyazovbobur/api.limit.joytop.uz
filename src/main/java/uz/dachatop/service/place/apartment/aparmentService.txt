@@ -1,0 +1,249 @@
+package uz.dachatop.service.place.apartment;
+
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+import uz.dachatop.config.EntityDetails;
+import uz.dachatop.dto.district.DistrictDTO;
+import uz.dachatop.dto.region.RegionDTO;
+import uz.dachatop.dto.apartment.*;
+import uz.dachatop.dto.place.apartment.*;
+import uz.dachatop.dto.response.ApiResponse;
+import uz.dachatop.entity.place.apartment.ApartmentEntity;
+import uz.dachatop.exp.ItemNotFoundException;
+import uz.dachatop.mapper.apartment.IApartmentInfoMapper;
+import uz.dachatop.enums.AppLanguage;
+import uz.dachatop.repository.place.apartment.ApartmentRepository;
+import uz.dachatop.repository.place.apartment.ApartmentCustomFilter;
+import uz.dachatop.service.*;
+import uz.dachatop.service.place.PlaceAttachService;
+import uz.dachatop.service.place.PlaceCalendarService;
+import uz.dachatop.service.place.PlaceConvenienceService;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@AllArgsConstructor
+public class ApartmentService {
+    private final ApartmentRepository apartmentRepository;
+    private final AttachServer attachServer;
+    private final ApartmentAttachService apartmentAttachService;
+    private final ApartmentConvenienceService apartmentConvenienceService;
+    private final ApartmentCustomFilter apartmentCustomFilter;
+    private final RegionService regionService;
+    private final DistrictService districtService;
+    private final ProfileService profileService;
+    private final ApartmentCalendarService apartmentCalendarService;
+
+    public ApiResponse<String> create(ApartmentCreateDTO dto) {
+        // check  not implementes yet
+        ApartmentEntity apartmentEntity = new ApartmentEntity();
+        toEntity(dto, apartmentEntity);
+        apartmentEntity.setProfileId(EntityDetails.getCurrentProfileId());
+//        apartmentEntity.setProfileId("042ae6ce-06a8-4fcd-baea-69527a205a57");
+        apartmentRepository.save(apartmentEntity); // create apartment
+        // add image
+        apartmentAttachService.mergeAttachApartment(apartmentEntity.getId(), dto.getAttachList());
+        // add convenience
+        apartmentConvenienceService.mergeApartmentConvenience(apartmentEntity.getId(), dto.getConvenienceList());
+        // add calendar
+        apartmentCalendarService.merge(apartmentEntity.getId(), dto.getCalendarList());
+        return ApiResponse.ok();
+    }
+
+    public ApiResponse<String> update(String apartmentId, ApartmentCreateDTO dto) {
+        // check  not implemented yet
+        ApartmentEntity apartmentEntity = get(apartmentId);
+        toEntity(dto, apartmentEntity);
+        apartmentRepository.save(apartmentEntity); // update apartment
+        // add image
+        apartmentAttachService.mergeAttachApartment(apartmentEntity.getId(), dto.getAttachList());
+        // add convenience
+        apartmentConvenienceService.mergeApartmentConvenience(apartmentEntity.getId(), dto.getConvenienceList());
+        // add calendar
+        apartmentCalendarService.merge(apartmentEntity.getId(), dto.getCalendarList());
+        return new ApiResponse<String>(200, false);
+    }
+
+    private Boolean checkRequirementFields(ApartmentCreateDTO dto) {
+        return true;
+    }
+
+    public ApiResponse<Page<ApartmentInfoDTO>> profileApartmentPagination(int page, int size, AppLanguage lang) {
+        String profileId = EntityDetails.getCurrentProfileId();
+        List<IApartmentInfoMapper> mapperList = apartmentRepository.getProfileApartmentList(profileId, lang.name(), page * size, size);
+        List<ApartmentInfoDTO> dtoList = mapperList.stream().map(iApartmentInfoMapper -> toInfoDTO(iApartmentInfoMapper)).collect(Collectors.toList());
+        Long totalCount = apartmentRepository.getProfileApartmentCount(profileId);
+        Page<ApartmentInfoDTO> pageObj = new PageImpl<ApartmentInfoDTO>(dtoList, PageRequest.of(page, size), totalCount);
+        return ApiResponse.ok(pageObj);
+    }
+
+    public ApiResponse<Page<ApartmentInfoDTO>> apartmentFilter_forClient(ApartmentFilterDTO filter, int page, int size, AppLanguage lang) {
+        ApartmentFilterResult filterResult = apartmentCustomFilter.filter(filter, lang, page * size, size);
+        List<ApartmentInfoDTO> dtoList = filterResult.getContent().stream().map(apartmentMapper -> toInfoDTO(apartmentMapper)).collect(Collectors.toList());
+        Page<ApartmentInfoDTO> pageObj = new PageImpl<ApartmentInfoDTO>(dtoList, PageRequest.of(page, size), filterResult.getTotalCount());
+        return ApiResponse.ok(pageObj);
+    }
+
+    public ApiResponse<Page<ApartmentInfoDTO>> apartmentFilter_forAdmin(ApartmentFilterDTO filterDTO, int page, int size, AppLanguage lang) {
+        return null;
+    }
+
+    public ApiResponse<ApartmentDTO> getApartmentById(String apartmentId, AppLanguage lang) {
+        Optional<ApartmentEntity> optional = apartmentRepository.findByIdAndVisibleTrue(apartmentId);
+        if (optional.isEmpty()) {
+            return ApiResponse.bad("Item not found");
+        }
+        ApartmentDTO dto = toDetailDTO(optional.get(), lang);
+        return ApiResponse.ok(dto);
+    }
+
+    public ApiResponse<?> deleteApartment(String id, AppLanguage lang) {
+        ApartmentEntity entity = get(id);
+        String profileId = EntityDetails.getCurrentProfileId();
+        if (!entity.getProfileId().equals(profileId)) {
+            return ApiResponse.bad("You are not owner. Mazgi.");
+        }
+        apartmentRepository.deleteApartment(id, profileId, LocalDateTime.now());
+        return ApiResponse.ok();
+    }
+
+    private ApartmentInfoDTO toInfoDTO(ApartmentMapper mapper) {
+        ApartmentInfoDTO apartmentInfoDTO = new ApartmentInfoDTO();
+        apartmentInfoDTO.setId(mapper.getId());
+        apartmentInfoDTO.setRegion(new RegionDTO(mapper.getRegionId(), mapper.getRegionName()));
+        apartmentInfoDTO.setDistrict(new DistrictDTO(mapper.getDistrictId(), mapper.getDistrictName()));
+        apartmentInfoDTO.setLatitude(mapper.getLatitude());
+        apartmentInfoDTO.setLongitude(mapper.getLongitude());
+        apartmentInfoDTO.setWeekDayPrice(mapper.getWeekDayPrice());
+        apartmentInfoDTO.setWeekendPrice(mapper.getWeekendPrice());
+        apartmentInfoDTO.setTotalArea(mapper.getTotalArea());
+        apartmentInfoDTO.setSingleBedRoomCount(mapper.getSingleBedRoomCount());
+        apartmentInfoDTO.setDoubleBedRoomCount(mapper.getDoubleBedRoomCount());
+        apartmentInfoDTO.setMainAttach(mapper.getImage());
+        return apartmentInfoDTO;
+    }
+
+    private ApartmentInfoDTO toInfoDTO(IApartmentInfoMapper mapper) {
+        ApartmentInfoDTO apartmentInfoDTO = new ApartmentInfoDTO();
+        apartmentInfoDTO.setId(mapper.getApartmentId());
+        apartmentInfoDTO.setRegion(new RegionDTO(mapper.getRegionId(), mapper.getRegionName()));
+        apartmentInfoDTO.setDistrict(new DistrictDTO(mapper.getDistrictId(), mapper.getDistrictName()));
+        apartmentInfoDTO.setLatitude(mapper.getLatitude());
+        apartmentInfoDTO.setLongitude(mapper.getLongitude());
+        apartmentInfoDTO.setWeekDayPrice(mapper.getWeekDayPrice());
+        apartmentInfoDTO.setWeekendPrice(mapper.getWeekendPrice());
+        apartmentInfoDTO.setTotalArea(mapper.getTotalArea());
+        apartmentInfoDTO.setSingleBedRoomCount(mapper.getSingleBedRoomCount());
+        apartmentInfoDTO.setDoubleBedRoomCount(mapper.getDoubleBedRoomCount());
+        return apartmentInfoDTO;
+    }
+
+    private void toEntity(ApartmentCreateDTO dto, ApartmentEntity apartment) {
+        // media
+        apartment.setVideoUrl(dto.getVideoUrl());
+        // address
+        apartment.setRegionId(dto.getRegionId());
+        apartment.setDistrictId(dto.getDistrictId());
+        apartment.setStreet(dto.getStreet()); // улица
+        apartment.setHouse(dto.getHouse()); // дом
+        apartment.setApartmentNum(dto.getApartmentNum()); // квт
+        // location
+        apartment.setLatitude(dto.getLatitude());
+        apartment.setLongitude(dto.getLongitude());
+        // main information
+        apartment.setType(dto.getType());
+        apartment.setName(dto.getName());
+        apartment.setRoomCount(dto.getRoomCount());
+        apartment.setTotalArea(dto.getTotalArea()); // общее помощение
+        apartment.setSingleBedRoomCount(dto.getSingleBedRoomCount()); // количество одноместных спальный
+        apartment.setDoubleBedRoomCount(dto.getDoubleBedRoomCount());  // количество двухместный спальный
+        //price
+        apartment.setWeekDayPrice(dto.getWeekDayPrice()); // обычная цена за сутки
+        apartment.setPriceOnSale(dto.getPriceOnSale()); // сумма со скидкой
+        apartment.setWeekendPrice(dto.getWeekendPrice()); // цена по выходным за сутки
+        apartment.setGageOfDeposit(dto.getGageOfDeposit()); // процент залога
+        //time
+        apartment.setEnterTime(dto.getEnterTime());
+        apartment.setDepartureTime(dto.getDepartureTime());
+        //Book type
+        apartment.setMaximumDayBooking(dto.getMaximumDayBooking());
+        apartment.setMinimumDayBooking(dto.getMinimumDayBooking());
+        //Rules
+        apartment.setSmoking(dto.isSmoking());
+        apartment.setAlcohol(dto.isAlcohol());
+        apartment.setPets(dto.isPets());
+        apartment.setAvailableOnlyFamily(dto.isAvailableOnlyFamily());
+        apartment.setLoudlyMusic(dto.isLoudlyMusic());
+        apartment.setParty(dto.isParty());
+        // card
+        apartment.setProfileCardPan(dto.getProfileCardPan());
+    }
+
+    private ApartmentDTO toDetailDTO(ApartmentEntity entity, AppLanguage language) {
+        ApartmentDTO dto = new ApartmentDTO();
+        // media
+        dto.setVideoUrl(dto.getVideoUrl());
+        // address
+        dto.setRegion(regionService.getById(entity.getRegionId(), language));
+        dto.setDistrict(districtService.getById(entity.getDistrictId(), language));
+        dto.setDistrictId(entity.getDistrictId());
+        dto.setStreet(entity.getStreet()); // улица
+        dto.setHouse(entity.getHouse()); // дом
+        dto.setApartmentNum(entity.getApartmentNum()); // квт
+        // location
+        dto.setLatitude(entity.getLatitude());
+        dto.setLongitude(entity.getLongitude());
+        // main information
+        dto.setType(entity.getType());
+        dto.setName(entity.getName());
+        dto.setRoomCount(dto.getRoomCount());
+        dto.setTotalArea(entity.getTotalArea()); // общее помощение
+        dto.setSingleBedRoomCount(entity.getSingleBedRoomCount()); // количество одноместных спальный
+        dto.setDoubleBedRoomCount(entity.getDoubleBedRoomCount());  // количество двухместный спальный
+        //price
+        dto.setWeekDayPrice(dto.getWeekDayPrice()); // обычная цена за сутки
+        dto.setPriceOnSale(dto.getPriceOnSale()); // сумма со скидкой
+        dto.setWeekendPrice(dto.getWeekendPrice()); // цена по выходным за сутки
+        dto.setGageOfDeposit(dto.getGageOfDeposit()); // процент залога
+        //time
+        dto.setEnterTime(entity.getEnterTime());
+        dto.setDepartureTime(entity.getDepartureTime());
+        //Book type
+        dto.setMaximumDayBooking(entity.getMaximumDayBooking());
+        dto.setMinimumDayBooking(entity.getMinimumDayBooking());
+        //Rules
+        dto.setSmoking(entity.isSmoking());
+        dto.setAlcohol(entity.isAlcohol());
+        dto.setPets(entity.isPets());
+        dto.setAvailableOnlyFamily(entity.isAvailableOnlyFamily());
+        dto.setLoudlyMusic(entity.isLoudlyMusic());
+        dto.setParty(entity.isParty());
+        // card
+        dto.setProfileCardPan(entity.getProfileCardPan());
+        dto.setStatus(entity.getStatus());
+        // owner
+        dto.setProfile(profileService.getProfileShortInfo(entity.getProfileId()));
+        //photo
+        dto.setAttach(apartmentAttachService.getApartmentAttachList(entity.getId()));
+        // convenienceList
+        dto.setConvenienceList(apartmentConvenienceService.getApartmentConvenienceList(entity.getId(), language));
+        // calendar
+        dto.setCalendarList(apartmentCalendarService.getByApartmentId(entity.getId()).getData());
+        return dto;
+    }
+
+
+    public ApartmentEntity get(String id) {
+        return apartmentRepository.findById(id).orElseThrow(() -> {
+            throw new ItemNotFoundException("Apartment Not Found");
+        });
+    }
+
+
+}

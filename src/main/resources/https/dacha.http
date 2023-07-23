@@ -1,0 +1,135 @@
+### Clinet dacha filter
+POST localhost:8081/api/v1/dacha/public/filter?page=0&size=3
+Content-Type: application/json
+
+{
+
+}
+
+### Get dacha byId
+GET http://localhost:8081/api/v1/dacha/public/e614bcb3-9db1-49a8-a50f-c6276799f6ef
+
+
+### Create dacha
+POST http://localhost:8081/api/v1/dacha
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0Nzg5MDEsInBob25lIjoiOTk4OTAwOTY0NjQ3Iiwicm9sZSI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImV4cCI6MTY4NDU2NTMwMiwiaXNzIjoiZGFzaGF0b3AifQ.DOXk_40ymoMy_RGxMrfFV6q2zAhiMjuaNtpOwBwtrERF16RQVz2k20K4CbjVsgM7gJqXKjpy3Lb6DZjjOfGzOA
+
+{
+  "videoUrl": "some urldasdasda",
+  "regionId": 1,
+  "districtId": 1,
+  "territoryId": 1,
+  "latitude": 123.45,
+  "longitude": 123.46,
+  "subType": "RENT",
+  "type": "COTTAGE",
+  "salePrice": 1020,
+  "smoking": false,
+  "alcohol": false,
+  "pets": false,
+  "availableOnlyFamily": false,
+  "loudlyMusic": false,
+  "party": false,
+  "name": "dacha",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "contact": "998972322903",
+  "totalArea": 200,
+  "roomCount": 10,
+  "singleBedRoomCount": 2,
+  "doubleBedRoomCount": 2,
+  "weekDayPrice": 1000,
+  "priceOnSale": 600,
+  "weekendPrice": 600,
+  "gageOfDeposit": 10,
+  "enterTime": "19:00",
+  "departureTime": "15:00",
+  "maximumDayBooking": 2,
+  "minimumDayBooking": 1,
+  "convenienceList": [
+    {
+      "id": 1
+    }
+  ],
+  "attachList": [
+    {
+      "id": "ad2b8a64-5041-4b81-b9f2-68ae52e9c37d"
+    },
+    {
+      "id": "f80cb246-0f3b-4b4d-afa2-724cade373e4"
+    },
+    {
+      "id": "b875792e-99cf-4807-b28a-cbf39607ef64"
+    }
+  ]
+}
+
+### http://178.218.207.96:8081/swagger-ui/index.html
+
+### update dacha
+PUT http://178.218.207.96:8081/api/v1/dacha/164ea390-f931-4d36-bc58-022d8907da7b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQwNTQ0MzgsInBob25lIjoiOTk4OTcyMzIyOTAzIiwicm9sZSI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImV4cCI6MTY4NDE0MDgzOCwiaXNzIjoiZGFzaGF0b3AifQ.drUWRgbBDYbmpz01qVdRACB909lw5hErCffYsblmcEMnqHHzWRGUiLhqk7WA0CE0r9XAKiM1ztFpa3M8O0cysg
+
+{
+  "videoUrl": "https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU",
+  "regionId": 2,
+  "districtId": 14,
+  "latitude": 123.45,
+  "longitude": 123.46,
+  "type": "COTTAGE",
+  "smoking": false,
+  "alcohol": false,
+  "pets": false,
+  "availableOnlyFamily": false,
+  "loudlyMusic": false,
+  "party": false,
+  "name": "Super dacha",
+  "description": "dasdasda",
+  "contact": "998915721213",
+  "totalArea": 200,
+  "roomCount": 10,
+  "singleBedRoomCount": 2,
+  "doubleBedRoomCount": 234,
+  "weekDayPrice": 1000,
+  "priceOnSale": 600,
+  "weekendPrice": 600,
+  "gageOfDeposit": 10,
+  "enterTime": "19:00",
+  "departureTime": "06:17:00",
+  "maximumDayBooking": 2,
+  "minimumDayBooking": 1,
+  "convenienceList": [
+    {
+      "id": 1
+    }
+  ],
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa1"
+    }
+  ],
+  "calendarList": [
+    {
+      "date": "2023-05-31",
+      "status": "EXPECTATION"
+    }
+  ],
+  "number": 213
+}
+
+
+
+### Delete dacha
+DELETE localhost:8081/api/v1/dacha/4acc8b37-ed94-492f-9661-bafb7add9622
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc0MjcxNjksInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3NzUxMzU2OSwiaXNzIjoiZGFzaGF0b3AifQ.u600df92EmfgwDLBUhbxrVVbHt1XzZ53WUREfy-x_88sCoouBR__VHI9fnTfv4BPOG3PoG6dbWLqiaElWZoc9Q
+
+
+### change status
+PUT localhost:8081/api/v1/dacha/admin/status/4acc8b37-ed94-492f-9661-bafb7add9622?status=NOT_ACTIVE
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc0MjcxNjksInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3NzUxMzU2OSwiaXNzIjoiZGFzaGF0b3AifQ.u600df92EmfgwDLBUhbxrVVbHt1XzZ53WUREfy-x_88sCoouBR__VHI9fnTfv4BPOG3PoG6dbWLqiaElWZoc9Q
+
+### FIND BY NUMBER
+GET http://localhost:8081/api/v1/dacha/public/number/12

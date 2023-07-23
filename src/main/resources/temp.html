@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<h1>Check cors</h1>
+
+<h1>Result: </h1>
+<div id="result">dasda</div>
+</body>
+
+</html>
+<script>
+    var xhttps = new XMLHttpRequest();
+
+    xhttps.onreadystatechange = function () {
+        document.getElementById("result").innerText = this.responseText;
+    };
+    xhttps.open("GET", "http://localhost:8081/api/v1/district/regionId/1", false);
+    xhttps.setRequestHeader("Authorization", "Bearer asdasdasd");
+    xhttps.send();
+</script>
+
+
+</body>
+</html>

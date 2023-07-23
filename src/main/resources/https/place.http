@@ -1,0 +1,26 @@
+###
+GET http://localhost:8081/api/v1/place?size=5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODA3Nzk2MjksInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjgwODY2MDI5LCJpc3MiOiJkYXNoYXRvcCJ9.Y-oFGSyi6y9FonKNnNfoI4R4PUv3UIzfXJZnQ8oDBkMPigi1rRvVAkdQKhrsxXqJuYz3TzIMTqzeoBNktjnjDw
+
+
+###
+POST http://localhost:8081/api/v1/place?size=5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI5MzIwMTMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MzAxODQxMywiaXNzIjoiZGFzaGF0b3AifQ.k2JFvpsXzJwBmhRoNyIEbLGqrGRGB-3v8GzbAJPWJYKo6XglVJIemhH_zaLAYKNcUHGmG9B4U80vYP_Oz29enA
+Content-Type: application/json
+
+{
+  "name": "da"
+}
+
+###region, district, xudud, priceFrom, priceTo, name, number, totalArea, id, profileId
+
+### TRANSFER PLACE
+PUT http://localhost:8081/api/v1/place/transfer
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MjQzMjgsInBob25lIjoiOTk4OTcyMzIyOTAzIiwicm9sZSI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImV4cCI6MTY4NDUxMDcyOCwiaXNzIjoiZGFzaGF0b3AifQ.a9ExaxvAVKfe0cJGMaQLZ4oEFu4LqWfVqM9yjxOOTIyNKY42hhvnW7XsEKNpBpfSl277mzpzi505RW7o12fsfg
+Content-Type: application/json
+
+{
+  "placeId": "9fccc702-0f6d-422e-9fcb-ae24fde73abd",
+  "type": "EXTREME",
+  "toProfile": "998330030528"
+}

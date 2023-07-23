@@ -1,0 +1,195 @@
+### Clinet dacha filter
+POST localhost:8081/api/v1/hotel/public/filter?page=0&size=10
+Content-Type: application/json
+
+{
+
+}
+
+### Get hotel byId
+GET localhost:8081/api/v1/hotel/public/45137398-910e-4fab-a782-69b52f1faf73
+
+
+### Create hotel
+POST localhost:8081/api/v1/hotel
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODE5MDEwOTgsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjgxOTg3NDk4LCJpc3MiOiJkYXNoYXRvcCJ9.0gXp8_hAUH2s10LQP2c7kiZ8HPPFO1AD-Wrk8dVwLo74ptQQG3DJBvGdaLP5e1AiLY5Ly30IuX7epd2u5eX39w
+
+{
+  "videoUrl": "some urldasdasda",
+  "regionId": 2,
+  "districtId": 2,
+  "territoryId": 1,
+  "latitude": 123.45,
+  "longitude": 123.46,
+  "type": "HOTEL",
+  "smoking": false,
+  "alcohol": false,
+  "pets": false,
+  "availableOnlyFamily": false,
+  "loudlyMusic": false,
+  "party": false,
+  "description": "dasdasda",
+  "contact": "1231231",
+  "name": "Hotel motel",
+  "starCount": 4,
+  "minPrice": 200,
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa1"
+    }
+  ],
+  "convenienceList": [
+    {
+      "id": 1
+    }
+  ],
+  "roomList": [
+    {
+      "roomType": "SINGLE",
+      "totalArea": 30,
+      "dayPrice": 100,
+      "priceOnSale": 100,
+      "convenienceList": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ],
+      "attachList": [
+        {
+          "id": "aaaaaaaaaaaaaa1"
+        },
+        {
+          "id": "aaaaaaaaaaaaaa2"
+        }
+      ]
+    },
+    {
+      "roomType": "SINGLE",
+      "totalArea": 10,
+      "dayPrice": 1,
+      "priceOnSale": 1,
+      "convenienceList": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ],
+      "attachList": [
+        {
+          "id": "aaaaaaaaaaaaaa1"
+        },
+        {
+          "id": "aaaaaaaaaaaaaa2"
+        }
+      ]
+    },
+    {
+      "roomType": "TRIPLE",
+      "totalArea": 30,
+      "dayPrice": 100,
+      "priceOnSale": 100,
+      "convenienceList": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ],
+      "attachList": [
+        {
+          "id": "aaaaaaaaaaaaaa1"
+        },
+        {
+          "id": "aaaaaaaaaaaaaa2"
+        }
+      ]
+    }
+  ]
+}
+
+
+### update hotel
+PUT http://178.218.207.96:8081/api/v1/hotel/53f5b8af-fbec-4324-b55d-3ecdbbb51a49
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODIxNDUyOTksInBob25lIjoiOTk4OTcyMzIyOTAzIiwicm9sZSI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImV4cCI6MTY4MjIzMTY5OSwiaXNzIjoiZGFzaGF0b3AifQ.McA3mXLiZ-xPYf1uob1YJ7w1OnjqO1ui60tbE_1r-icLbuRH_4xMKTwraO-c2M02yvfTeX008HkK2JcibYP7Lw
+
+{
+  "attachList": [
+    {
+      "id": "2e87bf49-8306-49e2-bf54-dbf6f9176af9",
+      "originalName": "string",
+      "size": 0,
+      "extension": "string",
+      "createdDate": "2023-04-23T05:05:54.807Z",
+      "url": "string",
+      "path": "string"
+    }
+  ],
+  "videoUrl": "https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU",
+  "regionId": 2,
+  "districtId": 14,
+  "territoryId": null,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "COTTAGE",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "lorem lorem lorem",
+  "contact": "+998916771030",
+  "status": "ACTIVE",
+  "name": "LOREM",
+  "starCount": 2.5,
+  "minPrice": 300000,
+  "convenienceList": [
+    {
+      "id": 1,
+      "name": "string",
+      "nameUz": "string",
+      "nameRu": "string",
+      "nameEn": "string"
+    }
+  ],
+  "roomList": [
+    {
+      "id": "Yangisi",
+      "roomType": "SINGLE",
+      "totalArea": 12,
+      "dayPrice": 43000,
+      "priceOnSale": 20000,
+      "convenienceList": [
+        {
+          "id": 1,
+          "name": "daxshat",
+          "nameUz": "zo'r",
+          "nameRu": "yaxshi",
+          "nameEn": "well"
+        }
+      ]
+    }
+  ]
+}
+
+
+### Delete hotal
+DELETE localhost:8081/api/v1/hotel/45137398-910e-4fab-a782-69b52f1faf73
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc0NjM5ODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3NzU1MDM4MywiaXNzIjoiZGFzaGF0b3AifQ.IGhaj1J7EnJ8vfR9fPsudHc3boUAYy5sqnz8stJ755Nssw_lFFb1RaJhKqPabEQE_OHHBazlmnvUC3T5TeldfA
+
+
+### change status
+PUT localhost:8081/api/v1/hotel/admin/status/45137398-910e-4fab-a782-69b52f1faf73?status=NOT_ACTIVE
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc0NjM5ODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3NzU1MDM4MywiaXNzIjoiZGFzaGF0b3AifQ.IGhaj1J7EnJ8vfR9fPsudHc3boUAYy5sqnz8stJ755Nssw_lFFb1RaJhKqPabEQE_OHHBazlmnvUC3T5TeldfA
+
+

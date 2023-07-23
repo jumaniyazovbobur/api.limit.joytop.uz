@@ -1,0 +1,36 @@
+### Get list for admin
+GET http://localhost:8081/api/v1/region/all
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzU5NjAzNDEsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYwNDY3NDEsImlzcyI6ImRhc2hhdG9wIn0.fIV9uSZwKiqRPIaYhSj7J-8vmk2PbnFbuHhN1Z16KHaa65REoySH9MhbU32prW94z2E3yXawHaZQAkaJ3jEnbQ
+
+### add
+POST http://localhost:8081/api/v1/region
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODAxNzQ1NTYsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDI2MDk1NiwiaXNzIjoiZGFzaGF0b3AifQ.0CMv_5tVVw4F3Sr5gmBGDrdxEoF0Yf_qjLB3H-bOVtMYHw4X_8_cSQNClAnrMIfdKgij20tVbRt8MKd-apBYvQ
+
+{
+  "nameUz": "NameUz",
+  "nameRu": "NameUz",
+  "nameEn": "NameUz"
+}
+
+###update
+PUT http://localhost:8081/api/v1/region/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzU5NjAzNDEsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYwNDY3NDEsImlzcyI6ImRhc2hhdG9wIn0.fIV9uSZwKiqRPIaYhSj7J-8vmk2PbnFbuHhN1Z16KHaa65REoySH9MhbU32prW94z2E3yXawHaZQAkaJ3jEnbQ
+
+{
+  "nameUz": "NameUz",
+  "nameRu": "NameUz",
+  "nameEn": "NameUz"
+}
+
+###delete
+DELETE http://localhost:8081/api/v1/region/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzU5NjAzNDEsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYwNDY3NDEsImlzcyI6ImRhc2hhdG9wIn0.fIV9uSZwKiqRPIaYhSj7J-8vmk2PbnFbuHhN1Z16KHaa65REoySH9MhbU32prW94z2E3yXawHaZQAkaJ3jEnbQ
+
+###getOne
+GET http://localhost:8081/api/v1/region/1
+
+### Get region list
+GET http://localhost:8081/api/v1/region
+Accept-Language: EN

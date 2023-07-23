@@ -1,0 +1,40 @@
+POST http://localhost:8081/api/v1/tariff
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODMwMjQ1MzMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MzExMDkzMywiaXNzIjoiZGFzaGF0b3AifQ.g7F4SUMrL3LfQzZlEN3Io1s0koUywO8-LokTHkGhd4NApxfuzia21lQFA87aMaaz4QmmUNnqRl5Cdd1r7PfDIQ
+
+{
+  "nameUz": "StringUz",
+  "nameRu": "StringRu",
+  "nameEn": "StringEn",
+  "price": 20004,
+  "orderNumber": 1,
+  "color": "White",
+  "days": 12
+}
+
+###
+PUT http://localhost:8081/api/v1/tariff/8ce0fc62-8519-40f4-a164-42d1c26ed27d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODA1MjY2MTcsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDYxMzAxNywiaXNzIjoiZGFzaGF0b3AifQ.uWtMdKZ0vCbPmFK_PDYMI7fFZFnDs_bNbcdaTMv9TQ71deyhLrr--ai6SjQ4x45tdEjXB-36pu1J7CMFSdoxmw
+
+{
+  "nameUz": "UpdateStringUz",
+  "nameRu": "UpdateStringRu",
+  "nameEn": "UpdateStringEn",
+  "price": 24,
+  "orderNumber": 2,
+  "days": 9
+}
+
+
+###
+GET http://localhost:8081/api/v1/tariff/8ce0fc62-8519-40f4-a164-42d1c26ed27d
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODA1MjY2MTcsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDYxMzAxNywiaXNzIjoiZGFzaGF0b3AifQ.uWtMdKZ0vCbPmFK_PDYMI7fFZFnDs_bNbcdaTMv9TQ71deyhLrr--ai6SjQ4x45tdEjXB-36pu1J7CMFSdoxmw
+
+###
+GET http://localhost:8081/api/v1/tariff/all
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODA1MjY2MTcsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDYxMzAxNywiaXNzIjoiZGFzaGF0b3AifQ.uWtMdKZ0vCbPmFK_PDYMI7fFZFnDs_bNbcdaTMv9TQ71deyhLrr--ai6SjQ4x45tdEjXB-36pu1J7CMFSdoxmw
+
+###
+DELETE http://localhost:8081/api/v1/tariff/8ce0fc62-8519-40f4-a164-42d1c26ed27d
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODA1MjY2MTcsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDYxMzAxNywiaXNzIjoiZGFzaGF0b3AifQ.uWtMdKZ0vCbPmFK_PDYMI7fFZFnDs_bNbcdaTMv9TQ71deyhLrr--ai6SjQ4x45tdEjXB-36pu1J7CMFSdoxmw

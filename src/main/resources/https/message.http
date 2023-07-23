@@ -1,0 +1,20 @@
+POST http://localhost:8081/api/v1/message/public
+Content-Type: application/json
+
+{
+  "text": "Lorem Ipsum is simply dummy ",
+  "phone": "+998330030528",
+  "price": 1000,
+  "fromDay": "2015-05-05",
+  "toDay": "2023-05-05"
+}
+
+
+####
+DELETE http://localhost:8081/api/v1/message/public/1
+
+
+###
+GET http://localhost:8081/api/v1/message/pagination?page=1&size=10
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzg2MTcxMjIsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY3ODcwMzUyMiwiaXNzIjoiZGFzaGF0b3AifQ.vlZOatiqY2imQe5HhD8D7jDtt55C3MybhUPMvU3bDNzGLKaOmDh7pzPR3LEGh0TSK5IfF9Iug9Ur-20gANW-Rw
+

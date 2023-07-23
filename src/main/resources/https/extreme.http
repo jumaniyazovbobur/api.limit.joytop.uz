@@ -1,0 +1,90 @@
+### Clinet extreme filter
+POST localhost:8081/api/v1/extreme/public/filter?page=0&size=10
+Content-Type: application/json
+
+{
+
+}
+
+### Get extreme byId
+GET localhost:8081/api/v1/extreme/public/aa6d3332-25c2-4676-86a8-1cb83224ab01
+Content-Type: application/json
+
+
+### Create extreme
+POST localhost:8081/api/v1/extreme
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODU4MjExNTgsInBob25lIjoiOTk4OTE1NzIxMjEzIiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjg1OTA3NTU4LCJpc3MiOiJkYXNoYXRvcCJ9.QckBTn8Cmk9nb2IvLX9ZQT9XfM9SS1YPDgpZChzOFvk1VamVKUhmHaMre-N3ZY3ASjX8iHk4j-l0QTFHp9I4UA
+
+{
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa3"
+    }
+  ],
+  "videoUrl": "https://emupedia.net/beta/emuos/",
+  "regionId": 1,
+  "territoryId": 1,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "EXTREME",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "string",
+  "contact": "string",
+  "status": "ACTIVE",
+  "weekDayPrice": 0,
+  "weekendPrice": 0
+
+}
+
+
+### update extreme
+PUT localhost:8081/api/v1/extreme/d93c8fdb-4ca1-41f3-9a0e-05bfc03aaa16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+{
+  "attachList": [
+    {
+      "id": "19786fb5-3b01-49cc-b37f-7773a0e3e54b"
+    }
+  ],
+  "videoUrl": "https://emupedia.net/beta/emuos/",
+  "regionId": 1,
+  "districtId": 53,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "EXTREME",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "string",
+  "contact": "string",
+  "status": "ACTIVE",
+  "weekDayPrice": 0,
+  "weekendPrice": 0,
+  "extremeTypeId": "acedfeaf-9c9d-45a2-b985-ef17efffced3"
+
+}
+
+
+### Delete extreme
+DELETE localhost:8081/api/v1/extreme/d93c8fdb-4ca1-41f3-9a0e-05bfc03aaa16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+
+### change status
+PUT localhost:8081/api/v1/extreme/admin/status/d93c8fdb-4ca1-41f3-9a0e-05bfc03aaa16?status=NOT_ACTIVE
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+

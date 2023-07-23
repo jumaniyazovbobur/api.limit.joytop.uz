@@ -1,0 +1,27 @@
+### CREATE
+POST http://localhost:8081/api/v1/extreme-type
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODU4MjExNTgsInBob25lIjoiOTk4OTE1NzIxMjEzIiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjg1OTA3NTU4LCJpc3MiOiJkYXNoYXRvcCJ9.QckBTn8Cmk9nb2IvLX9ZQT9XfM9SS1YPDgpZChzOFvk1VamVKUhmHaMre-N3ZY3ASjX8iHk4j-l0QTFHp9I4UA
+
+{
+  "nameUz": "String",
+  "nameEn": "String",
+  "nameRu": "String"
+}
+
+### UPDATE
+PUT http://localhost:8081/api/v1/extreme-type/a580c782-9c5f-40d4-9965-c8f2e77897e4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzcyMzk3ODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzczMjYxODMsImlzcyI6ImRhc2hhdG9wIn0.fecfv3Y9YOSz4MFuxFpXobkRo4B3ZvykJrbhAgdxjmZ_X1Jv5uCethPKCSfk9ka15JqShy2tNkI9PEqB0kKRcQ
+
+{
+  "name": "The best of the best"
+}
+
+### DELETE
+DELETE http://localhost:8081/api/v1/extreme-type/a580c782-9c5f-40d4-9965-c8f2e77897e4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzcyMzk3ODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzczMjYxODMsImlzcyI6ImRhc2hhdG9wIn0.fecfv3Y9YOSz4MFuxFpXobkRo4B3ZvykJrbhAgdxjmZ_X1Jv5uCethPKCSfk9ka15JqShy2tNkI9PEqB0kKRcQ
+
+### GET ALL BY PAGINATION
+GET http://localhost:8081/api/v1/extreme-type?page=0&size=25
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzcyMzk3ODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzczMjYxODMsImlzcyI6ImRhc2hhdG9wIn0.fecfv3Y9YOSz4MFuxFpXobkRo4B3ZvykJrbhAgdxjmZ_X1Jv5uCethPKCSfk9ka15JqShy2tNkI9PEqB0kKRcQ

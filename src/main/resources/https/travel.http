@@ -1,0 +1,96 @@
+### Clinet travel filter
+POST localhost:8080/api/v1/travel/public/filter?page=0&size=10
+Content-Type: application/json
+
+{
+  "type": "TRAVEL"
+}
+
+### Get travel byId
+GET localhost:8081/api/v1/travel/public/b1d646c8-7856-44c0-99e4-d427df74876d
+Content-Type: application/json
+
+
+### Create travel
+POST localhost:8081/api/v1/travel
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI1OTM0NzIsInBob25lIjoiOTk4OTAwOTY0NjQ3Iiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjgyNjc5ODcyLCJpc3MiOiJkYXNoYXRvcCJ9.9kfpF5xgQ5xSOa3HosCMS9JiGgmT1A56inAKbewRD810tcMaGmdfampwLG9KC4FhX29AytkLxkQeZnQlDxnRpg
+
+{
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa3"
+    }
+  ],
+  "videoUrl": "https://emupedia.net/beta/emuos/",
+  "regionId": 1,
+  "territoryId": 1,
+  "standardsPrice": 52522,
+  "priceOnSale": 5154,
+  "districtId": 53,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "COTTAGE",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "string",
+  "contact": "string",
+  "status": "ACTIVE",
+  "countryId": 2,
+  "companyName": "string",
+  "companyAddress": "string"
+}
+
+
+### update travel
+PUT localhost:8081/api/v1/travel/b1d646c8-7856-44c0-99e4-d427df74876d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+{
+  "attachList": [
+    {
+      "id": "19786fb5-3b01-49cc-b37f-7773a0e3e54b"
+    }
+  ],
+  "videoUrl": "https://emupedia.net/beta/emuos/",
+  "regionId": 1,
+  "districtId": 53,
+  "standardsPrice": 52522,
+  "priceOnSale": 5154,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "COTTAGE",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "string",
+  "contact": "string",
+  "status": "ACTIVE",
+  "countryId": 1,
+
+  "companyName": "string",
+  "companyAddress": "string"
+}
+
+
+
+### Delete travel
+DELETE localhost:8081/api/v1/travel/b1d646c8-7856-44c0-99e4-d427df74876d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+
+### change status
+PUT localhost:8081/api/v1/travel/admin/status/b1d646c8-7856-44c0-99e4-d427df74876d?status=NOT_ACTIVE
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+

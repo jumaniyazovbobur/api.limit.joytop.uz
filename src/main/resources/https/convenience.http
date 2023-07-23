@@ -1,0 +1,33 @@
+###CONVENIENCE CREATE
+POST http://localhost:8081/api/v1/convenience
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzg3MjY4ODgsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY3ODgxMzI4OCwiaXNzIjoiZGFzaGF0b3AifQ.FyJKZGlcFWqQplKZ0NP3LVg6vSVCOxY7Uhy0ZLzSRUJC8egvNE4ceFDHMxn9F_abhj7SpZ8hp3LpjNcY8iUD_w
+
+{
+  "nameEn": "nameEn",
+  "nameRu": "nameRu",
+  "nameUz": "nameUz"
+}
+
+###GET ALL
+GET http://localhost:8081/api/v1/convenience
+
+###GET ONE
+GET http://localhost:8081/api/v1/convenience/2
+
+###CONVENIENCE UPDATE
+PUT http://localhost:8081/api/v1/convenience/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzYyMTkyNDUsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYzMDU2NDUsImlzcyI6ImRhc2hhdG9wIn0.csu_f8XqqCCsz-g9lqZwWVq0yk1l41y3SRmcCn4HZe7U4BPCtPFoAMJS7X9YgQf4FO7R-LjH5bcR9_Ntif_udw
+
+{
+  "nameEn": "updateEn",
+  "nameRu": "updateRu",
+  "nameUz": "updateUz"
+}
+
+
+###CONVENIENCE DELETE
+DELETE http://localhost:8081/api/v1/convenience/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzYyMTkyNDUsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYzMDU2NDUsImlzcyI6ImRhc2hhdG9wIn0.csu_f8XqqCCsz-g9lqZwWVq0yk1l41y3SRmcCn4HZe7U4BPCtPFoAMJS7X9YgQf4FO7R-LjH5bcR9_Ntif_udw
+

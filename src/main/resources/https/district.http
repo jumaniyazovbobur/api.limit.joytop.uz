@@ -1,0 +1,41 @@
+###getAllForAdmin
+GET http://localhost:8081/api/v1/district/all
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzYzMDU2MTMsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYzOTIwMTMsImlzcyI6ImRhc2hhdG9wIn0.AhX62hFSo-Ytu-BVzCm0v7iwcxEqQ1pp3TDJ-xm3nmJifxh3XCYzLRY6DdKOU5VLQ2695S9i9q-PPS_VJHwsqA
+
+
+### getDistrictListByRegionId
+GET http://localhost:8081/api/v1/district/regionId/1
+
+
+### add
+POST http://localhost:8081/api/v1/district
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODAxNzU3ODgsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDI2MjE4OCwiaXNzIjoiZGFzaGF0b3AifQ.efEVee9ofy9-Bl94n6FUQSTFZHS0ik1PXDy-p-mddrWx2uwQmwIMkx8qT-lhOM5ckwV9L5axOCbGhRWrrk5rLQ
+
+{
+  "nameUz": "NameUz",
+  "nameRu": "NameUz",
+  "nameEn": "NameUz",
+  "regionId": 1
+}
+
+###update
+PUT http://localhost:8081/api/v1/district/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzU5NjAzNDEsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYwNDY3NDEsImlzcyI6ImRhc2hhdG9wIn0.fIV9uSZwKiqRPIaYhSj7J-8vmk2PbnFbuHhN1Z16KHaa65REoySH9MhbU32prW94z2E3yXawHaZQAkaJ3jEnbQ
+
+{
+  "nameUz": "NameUzff",
+  "nameRu": "NameUzff",
+  "nameEn": "NameUzff"
+}
+
+###delete
+DELETE http://localhost:8081/api/v1/district/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzU5NjAzNDEsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzYwNDY3NDEsImlzcyI6ImRhc2hhdG9wIn0.fIV9uSZwKiqRPIaYhSj7J-8vmk2PbnFbuHhN1Z16KHaa65REoySH9MhbU32prW94z2E3yXawHaZQAkaJ3jEnbQ
+
+
+###getOne
+GET http://localhost:8081/api/v1/district/1
+
+###

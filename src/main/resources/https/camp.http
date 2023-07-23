@@ -1,0 +1,116 @@
+### Clinet camp filter
+POST localhost:8081/api/v1/camp/public/filter?page=0&size=10
+Content-Type: application/json
+
+{
+
+}
+
+### Get camp byId
+GET localhost:8081/api/v1/camp/public/034ed612-5b41-4cc5-878d-f795558df5bf
+Content-Type: application/json
+
+
+### Create camp
+POST localhost:8081/api/v1/camp
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODI0MjIyOTEsInBob25lIjoiOTk4OTAwOTY0NjQ3Iiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjgyNTA4NjkxLCJpc3MiOiJkYXNoYXRvcCJ9.sVgAPbPze1dbl0ZK4KtSzpGMeXH0oMKfXGRxWpkfwr52I8gSN7fHOC6hNwFqKnpi1avNfQ7NaBd3AgaMFoTonw
+
+{
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa1"
+    },
+    {
+      "id": "aaaaaaaaaaaaaa2"
+    }
+  ],
+  "videoUrl": "https://emupedia.net/beta/emuos/",
+  "regionId": 1,
+  "territoryId": 1,
+  "districtId": 53,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "COTTAGE",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "string",
+  "contact": "string",
+  "status": "ACTIVE",
+  "name": "string",
+  "price": 0,
+  "priceOnSale": 0,
+  "convenienceList": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    }
+  ]
+}
+
+
+### update camp
+PUT localhost:8081/api/v1/camp/185ac7e1-4473-4cfe-bf2f-923570f18a28
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODEwMTkzNDMsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjgxMTA1NzQzLCJpc3MiOiJkYXNoYXRvcCJ9.NYhBCxcFXHHm2HW5V13AagdHRwZfkSIS_MFbEqifzWBIXrhq2nasR61KaiBZq7IS2cMgOM11Xt11_iUhxN02qA
+
+{
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa1"
+    }
+  ],
+  "videoUrl": "https://emupedia.net/beta/emuos/",
+  "regionId": 1,
+  "districtId": 53,
+  "latitude": 0,
+  "longitude": 0,
+  "type": "COTTAGE",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "description": "string",
+  "contact": "string",
+  "status": "ACTIVE",
+  "name": "string",
+  "price": 0,
+  "priceOnSale": 0,
+  "convenienceList": [
+    {
+      "id": 1
+    }
+  ]
+}
+
+
+
+### Delete camp
+DELETE localhost:8081/api/v1/camp/e5213e66-0271-4601-a76a-2967c9de8252
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+
+### change status
+PUT localhost:8081/api/v1/camp/admin/status/e5213e66-0271-4601-a76a-2967c9de8252?status=NOT_ACTIVE
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzc5MzU2NjUsInBob25lIjoiOTk4OTk4NjM4MjAxIiwicm9sZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImV4cCI6MTY3ODAyMjA2NSwiaXNzIjoiZGFzaGF0b3AifQ.0_tJ-G9IhU-hIGvnKzq4WJ38XOF7aMXAQkLlcDJTE4WmFD4ffuxHbG5SyM4-zNFd8R18Fr5ZU3098v5ekZQ-0Q
+
+

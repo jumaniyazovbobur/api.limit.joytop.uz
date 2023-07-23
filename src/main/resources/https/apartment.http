@@ -1,0 +1,110 @@
+### Clinet apartment filter
+POST localhost:8081/api/v1/apartment/public/filter?page=0&size=10
+Content-Type: application/json
+
+{
+
+}
+
+### Get apartment byId
+GET localhost:8081/api/v1/apartment/public/cf00fad0-5514-47da-be7e-7233b1c257be
+Content-Type: application/json
+
+
+### Create apartment
+POST localhost:8081/api/v1/apartment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODE3MjkxMjUsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjgxODE1NTI1LCJpc3MiOiJkYXNoYXRvcCJ9.5m2IGOx5PbZK6ylauO-m0pZ19neKnEMR9KxUSkxUZQ7CqoFpSgg0nRJFLOiIOLpA_GGU_lwgNg3E1a_yVHFYHw
+
+{
+  "videoUrl": "some url",
+  "subType": "RENT",
+  "regionId": 1,
+  "districtId": 1,
+  "latitude": 123.45,
+  "longitude": 123.46,
+  "type": "APARTMENT",
+  "smoking": false,
+  "alcohol": false,
+  "pets": false,
+  "availableOnlyFamily": false,
+  "loudlyMusic": false,
+  "party": false,
+  "totalArea": 200,
+  "roomCount": 10,
+  "singleBedRoomCount": 2,
+  "doubleBedRoomCount": 2,
+  "dayPrice": 12000,
+  "monthPrice": 15000,
+  "gageOfDeposit": 10,
+  "description": "dasdasda",
+  "contact": "1231231",
+  "convenienceList": [
+    {
+      "id": 1
+    }
+  ],
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa1"
+    },
+    {
+      "id": "aaaaaaaaaaaaaa2"
+    }
+  ]
+}
+
+
+### update apartment
+PUT localhost:8081/api/v1/apartment/607aa8e0-b072-4e12-b5f5-8dcb9a6af7a3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzczOTUxODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2Nzc0ODE1ODMsImlzcyI6ImRhc2hhdG9wIn0.kvF5Fd-lxcnCzkX47Qp0m8IxMISEMf5NnN8KPlUdctxNGN7oqZXwgjwUC9gNYjgpe-LXX78pJA6dVDazaTBDYg
+
+{
+  "videoUrl": "some urlssssaaaa",
+  "regionId": 2,
+  "districtId": 2,
+  "latitude": 123.45,
+  "longitude": 123.46,
+  "type": "APARTMENT",
+  "smoking": true,
+  "alcohol": true,
+  "pets": true,
+  "availableOnlyFamily": true,
+  "loudlyMusic": true,
+  "party": true,
+  "totalArea": 200,
+  "roomCount": 10,
+  "singleBedRoomCount": 2,
+  "doubleBedRoomCount": 2,
+  "dayPrice": 12000,
+  "monthPrice": 15000,
+  "gageOfDeposit": 10,
+  "description": "dasdasda",
+  "contact": "1231231",
+  "convenienceList": [
+    {
+      "id": 1
+    }
+  ],
+  "attachList": [
+    {
+      "id": "aaaaaaaaaaaaaa2"
+    }
+  ]
+}
+
+
+
+### Delete apartment
+DELETE localhost:8081/api/v1/apartment/607aa8e0-b072-4e12-b5f5-8dcb9a6af7a3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzczOTUxODMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2Nzc0ODE1ODMsImlzcyI6ImRhc2hhdG9wIn0.kvF5Fd-lxcnCzkX47Qp0m8IxMISEMf5NnN8KPlUdctxNGN7oqZXwgjwUC9gNYjgpe-LXX78pJA6dVDazaTBDYg
+
+
+### change status
+PUT localhost:8081/api/v1/apartment/admin/status/607aa8e0-b072-4e12-b5f5-8dcb9a6af7a3?status=NOT_ACTIVE
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzczOTkxODYsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE2Nzc0ODU1ODYsImlzcyI6ImRhc2hhdG9wIn0.feyMsSzTyVsEyT9E4pJZ7PjcZMj6tWytL2Hg4yvC0Mv4WRCKxnpWpCaUXkHWrPyKyPmtk8_iZ7lv_fjPTFHvHA
+
+

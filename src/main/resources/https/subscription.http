@@ -1,0 +1,41 @@
+POST http://localhost:8081/api/v1/subscription
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODM0NTU1NjYsInBob25lIjoiOTk4OTcyMzIyOTAzIiwicm9sZSI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImV4cCI6MTY4MzU0MTk2NiwiaXNzIjoiZGFzaGF0b3AifQ.EmiMJWoRagcWVRDPfilh2dh_ZnJlbt6Zwdh-xoxT6l1_Or0kKhoNRM9mrYzu25RkTRY3d3qiC12IFifCwI5g-Q
+
+{
+  "placeId": "cb32c579-d529-4bf3-8858-07a78703fb59",
+  "placeType": "APARTMENT",
+  "tariffId": "528f456e-6c67-4737-80e5-6bfe374c19f4",
+  "purchaseTimes": 3
+}
+
+###
+
+PUT http://localhost:8081/api/v1/subscription
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODExMjMwNTAsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MTIwOTQ1MCwiaXNzIjoiZGFzaGF0b3AifQ.i43-a4AAKCiasT8VjS4fx-993nd0-f8dbIAy1C8LttG1hdxIN_GCUnv9Wfm3Z1Kt4eN8FikFnnyF6H32CcBv2A
+Content-Type: application/json
+
+{
+  "id": "6c55f3ab-4c7f-4133-8eb7-6e200b295e48",
+  "status": "ACTIVE"
+}
+
+###
+
+POST http://localhost:8081/api/v1/subscription/filter?page=0&size=10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODIxNTE3MzksInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MjIzODEzOSwiaXNzIjoiZGFzaGF0b3AifQ.fKwL21SxGUU_WhKgM9AJO6tBIWZFKwvN4CTrMpweP7M7OAms9KFXNuQTCRVq6h7foH8JuYwZgrzta10R0WZGFg
+
+{
+  "status": "BLOCKED"
+}
+
+###
+
+POST http://178.218.207.96:8081/api/v1/subscription/filter?page=0&size=10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODMwMjQ1MzMsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MzExMDkzMywiaXNzIjoiZGFzaGF0b3AifQ.g7F4SUMrL3LfQzZlEN3Io1s0koUywO8-LokTHkGhd4NApxfuzia21lQFA87aMaaz4QmmUNnqRl5Cdd1r7PfDIQ
+
+{
+}
+

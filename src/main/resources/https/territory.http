@@ -1,0 +1,42 @@
+###getAllForAdmin
+GET http://localhost:8081/api/v1/territory/all/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODAxNzU3ODgsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDI2MjE4OCwiaXNzIjoiZGFzaGF0b3AifQ.efEVee9ofy9-Bl94n6FUQSTFZHS0ik1PXDy-p-mddrWx2uwQmwIMkx8qT-lhOM5ckwV9L5axOCbGhRWrrk5rLQ
+
+
+### add
+POST http://localhost:8081/api/v1/territory
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODAxNzU3ODgsInBob25lIjoiOTk4OTExMjM0NTY3Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDI2MjE4OCwiaXNzIjoiZGFzaGF0b3AifQ.efEVee9ofy9-Bl94n6FUQSTFZHS0ik1PXDy-p-mddrWx2uwQmwIMkx8qT-lhOM5ckwV9L5axOCbGhRWrrk5rLQ
+
+{
+  "nameUz": "NameUz",
+  "nameRu": "NameRu",
+  "nameEn": "NameEn",
+  "districtId": 1
+}
+
+###update
+PUT http://localhost:8081/api/v1/territory/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODAxNzQ1NTYsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDI2MDk1NiwiaXNzIjoiZGFzaGF0b3AifQ.0CMv_5tVVw4F3Sr5gmBGDrdxEoF0Yf_qjLB3H-bOVtMYHw4X_8_cSQNClAnrMIfdKgij20tVbRt8MKd-apBYvQ
+
+{
+  "nameUz": "NameUzff",
+  "nameRu": "NameRuff",
+  "nameEn": "NameEnff"
+}
+
+###delete
+DELETE http://localhost:8081/api/v1/territory/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Nzk5OTQ5NDMsInBob25lIjoiOTk4OTM1OTk3ODY0Iiwicm9sZSI6WyJST0xFX0FETUlOIl0sImV4cCI6MTY4MDA4MTM0MywiaXNzIjoiZGFzaGF0b3AifQ.VeJdeabioEeqciAOy52Hu-SF4SqT4Ud4zQ0mG2cmU6QMCgnCfKl_bBCUYZvcRxpKjfoXv5pd_4NDfeSwMteITg
+
+
+
+
+### getTerritoryListByDistrictId
+GET http://localhost:8081/api/v1/territory/public/districtId/1
+
+###getOne
+GET http://localhost:8081/api/v1/territory/public/1
+
+###
